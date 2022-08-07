@@ -6,6 +6,10 @@
 <h2 align="center">Moralis SDK for JavaScript</h2>
 
 <p align="center">
+    This is the v1 version of the Moralis JS SDK. For the latest version, see https://github.com/MoralisWeb3/Moralis-JS-SDK
+</p>
+
+<p align="center">
     A library that gives you access to the powerful Moralis Server backend from your JavaScript app. <a href="https://admin.moralis.io">Create Server Here</a>
 </p>
 
