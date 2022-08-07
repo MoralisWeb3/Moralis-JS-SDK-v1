@@ -13,8 +13,8 @@ about: Suggest new functionality or an enhancement of existing functionality.
     Thanks for contributing to Moralis!
 -->
 
-- [ ] I am not disclosing a [vulnerability](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/SECURITY.md).
-- [ ] I have searched through [existing issues](https://github.com/MoralisWeb3/Moralis-JS-SDK/issues?q=is%3Aissue) and the [Moralis Forum](https://forum.moralis.io/).
+- [ ] I am not disclosing a [vulnerability](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/blob/main/SECURITY.md).
+- [ ] I have searched through [existing issues](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/issues?q=is%3Aissue) and the [Moralis Forum](https://forum.moralis.io/).
 
 ### Current Limitation
 

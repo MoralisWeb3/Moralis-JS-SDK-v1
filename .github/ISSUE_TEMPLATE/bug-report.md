@@ -13,9 +13,9 @@ about: A feature is not working as expected.
     Thanks for contributing to Moralis!
 -->
 
-- [ ] I am not disclosing a [vulnerability](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/SECURITY.md).
-- [ ] I have searched through [existing issues](https://github.com/MoralisWeb3/Moralis-JS-SDK/issues?q=is%3Aissue) and the [Moralis Forum](https://forum.moralis.io/).
-- [ ] I can reproduce the issue with the [latest SDK release](https://github.com/MoralisWeb3/Moralis-JS-SDK/releases), and my server is updated to the latest version.<!-- We don't investigate issues for outdated releases. -->
+- [ ] I am not disclosing a [vulnerability](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/blob/main/SECURITY.md).
+- [ ] I have searched through [existing issues](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/issues?q=is%3Aissue) and the [Moralis Forum](https://forum.moralis.io/).
+- [ ] I can reproduce the issue with the [latest SDK release](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/releases), and my server is updated to the latest version.<!-- We don't investigate issues for outdated releases. -->
 
 ### Issue Description
 

@@ -4,11 +4,11 @@
 
 ### Setting up you local machine:
 
-- [Fork](https://github.com/MoralisWeb3/Moralis-JS-SDK) this project and clone the fork on your local machine:
+- [Fork](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1) this project and clone the fork on your local machine:
 
 ```sh
-git clone https://github.com/MoralisWeb3/Moralis-JS-SDK.git
-cd Moralis-JS-SDK # go into the clone directory
+git clone https://github.com/MoralisWeb3/Moralis-JS-SDK-v1.git
+cd Moralis-JS-SDK-v1 # go into the clone directory
 npm install # install all the node dependencies
 ```
 
@@ -43,11 +43,11 @@ We use GitHub issues to track public bugs. We will keep a close eye on this and 
 
 ### Coding Style
 
-Please follow the [Coding Style](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/CODING_STYLE.md).
+Please follow the [Coding Style](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/blob/main/CODING_STYLE.md).
 
 ### Code of Conduct
 
-This project adheres to the [Contributor Covenant Code of Conduct](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to honor this code.
+This project adheres to the [Contributor Covenant Code of Conduct](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to honor this code.
 
 ## License
 

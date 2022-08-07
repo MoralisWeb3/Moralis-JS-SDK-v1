@@ -13,8 +13,8 @@ about: A new pull request
     Thanks for contributing to Moralis!
 -->
 
-- [ ] I am not disclosing a [vulnerability](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/SECURITY.md).
-- [ ] My code is conform the [code style](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/CODE_STYLE.md)
+- [ ] I am not disclosing a [vulnerability](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/blob/main/SECURITY.md).
+- [ ] My code is conform the [code style](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/blob/main/CODE_STYLE.md)
 - [ ] I have made corresponding changes to the documentation
 - [ ] I have updated Typescript definitions when needed
 

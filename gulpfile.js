@@ -126,7 +126,7 @@ const getDevHeader = () => {
     '\n' +
     ' *\n' +
     ' * The source tree of this library can be found at\n' +
-    ' *   https://github.com/MoralisWeb3/Moralis-JS-SDK\n' +
+    ' *   https://github.com/MoralisWeb3/Moralis-JS-SDK-v1\n' +
     ' */\n'
   );
 };
@@ -149,7 +149,7 @@ const getFullHeader = () => {
     ' * All rights reserved.\n' +
     ' *\n' +
     ' * The source tree of this library can be found at\n' +
-    ' *   https://github.com/MoralisWeb3/Moralis-JS-SDK\n' +
+    ' *   https://github.com/MoralisWeb3/Moralis-JS-SDK-v1\n' +
     ' * This source code is licensed under the BSD-style license found in the\n' +
     ' * LICENSE file in the root directory of this source tree. An additional grant\n' +
     ' * of patent rights can be found in the PATENTS file in the same directory.\n' +
