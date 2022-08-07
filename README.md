@@ -52,7 +52,7 @@ The JavaScript ecosystem is wide and incorporates a large number of platforms an
 To use the npm modules for a browser based application, include it as you normally would:
 
 ```js
-const Moralis = require('moralis');
+const Moralis = require('moralis-v1');
 // ES6 Minimized
 import Moralis from 'moralis/dist/moralis.min.js';
 ```

@@ -434,7 +434,7 @@ if (process.env.PARSE_BUILD === 'node') {
   Moralis.Hooks = require('./ParseHooks');
 }
 
-// For legacy requires, of the form `var Moralis = require('moralis').Moralis`
+// For legacy requires, of the form `var Moralis = require('moralis-v1').Moralis`
 Moralis.Moralis = Moralis;
 
 module.exports = Moralis;
