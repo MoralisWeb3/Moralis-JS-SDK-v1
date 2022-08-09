@@ -1,3 +1,5 @@
+ **Note: This is the v1 version of the Moralis JS SDK, to support bugfixes. For the latest version, see https://github.com/MoralisWeb3/Moralis-JS-SDK**
+ 
 <p align="center">
     <a href="https://moralis.io">
     <img width="132" height="101" src="https://moralis.io/wp-content/uploads/2021/01/logo.png" class="attachment-full size-full" alt="Moralis Build Serverless web3 apps" loading="lazy" /></a>
@@ -6,21 +8,18 @@
 <h2 align="center">Moralis SDK for JavaScript</h2>
 
 <p align="center">
-    This is the v1 version of the Moralis JS SDK. For the latest version, see https://github.com/MoralisWeb3/Moralis-JS-SDK-v1
-</p>
-
-<p align="center">
     A library that gives you access to the powerful Moralis Server backend from your JavaScript app. <a href="https://admin.moralis.io">Create Server Here</a>
 </p>
 
-<br>
+
+
 
 For more information on Moralis and its features, see [the website](https://moralis.io), [the JavaScript guide](https://docs.moralis.io), [the Cloud Code guide](https://docs.moralis.io/moralis-server/cloud-code) or [Web3 Reference](https://docs.moralis.io/moralis-server/web3-sdk/intro).
 
 ## Getting Started
 
-The easiest way to integrate the Moralis SDK into your JavaScript project is through the [npm module](https://npmjs.org/moralis).
-However, if you want to use a pre-compiled file, you can fetch it from [unpkg](https://unpkg.com). The development version is available at [https://unpkg.com/moralis/dist/moralis.js](https://unpkg.com/moralis/dist/moralis.js), and the minified production version is at [https://unpkg.com/moralis/dist/moralis.min.js](https://unpkg.com/moralis/dist/moralis.min.js).
+The easiest way to integrate the Moralis SDK into your JavaScript project is through the [npm module](https://npmjs.org/moralis-v1).
+However, if you want to use a pre-compiled file, you can fetch it from [unpkg](https://unpkg.com). The development version is available at [https://unpkg.com/moralis-v1/dist/moralis.js](https://unpkg.com/moralis-v1/dist/moralis.js), and the minified production version is at [https://unpkg.com/moralis-v1/dist/moralis.min.js](https://unpkg.com/moralis-v1/dist/moralis.min.js).
 
 ## Webpack v5 support
 
@@ -54,21 +53,21 @@ To use the npm modules for a browser based application, include it as you normal
 ```js
 const Moralis = require('moralis-v1');
 // ES6 Minimized
-import Moralis from 'moralis/dist/moralis.min.js';
+import Moralis from 'moralis-v1/dist/moralis.min.js';
 ```
 
-For server-side applications or Node.js command line tools, include `'moralis/node'`:
+For server-side applications or Node.js command line tools, include `'moralis-v1/node'`:
 
 ```js
 // In a node.js environment
-const Moralis = require('moralis/node');
+const Moralis = require('moralis-v1/node');
 ```
 
-For React Native applications, include `'moralis/react-native.js'`:
+For React Native applications, include `'moralis-v1/react-native.js'`:
 
 ```js
 // In a React Native application
-const Moralis = require('moralis/react-native.js');
+const Moralis = require('moralis-v1/react-native.js');
 
 // On React Native >= 0.50 and Moralis >= 1.11.0, set the Async
 const AsyncStorage = require('react-native').AsyncStorage;
