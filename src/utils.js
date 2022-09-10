@@ -97,7 +97,7 @@ const checkForSdkUpdates = async () => {
   try {
     const { response } = await RESTController.ajax(
       'GET',
-      'https://www.unpkg.com/moralis/package.json'
+      'https://www.unpkg.com/moralis-v1/package.json'
     );
     const latestVersion = response.version;
     const installedVersion = process.env.NEXT_VERSION;
