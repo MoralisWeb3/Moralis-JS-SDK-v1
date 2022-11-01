@@ -153,8 +153,8 @@ static async fetchFromServer(name, options) {
       const user = this.Moralis.User.current();
       if(user) {
         options._SessionToken = user.attributes.sessionToken;
-        options._ApplicationId = this.Moralis.applicationId;
       }
+      options._ApplicationId = this.Moralis.applicationId;
       
       const response =  await http.post(`/functions/sol-${name}`, options, {
         headers: { Accept: 'application/json', 'Content-Type': 'application/json', ...this.headers },
@@ -169,19 +169,19 @@ static async fetchFromServer(name, options) {
   }
 
 
-  static account = {
-balance: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"account","name":"balance","url":"/account/:network/:address/balance"}, params: options }),
-getSPL: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"account","name":"getSPL","url":"/account/:network/:address/tokens"}, params: options }),
-getNFTs: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"account","name":"getNFTs","url":"/account/:network/:address/nft"}, params: options }),
-getPortfolio: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"account","name":"getPortfolio","url":"/account/:network/:address/portfolio"}, params: options }),
+  static Account = {
+balance: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"Account","name":"balance","url":"/account/:network/:address/balance"}, params: options }),
+getSPL: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"Account","name":"getSPL","url":"/account/:network/:address/tokens"}, params: options }),
+getNFTs: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"Account","name":"getNFTs","url":"/account/:network/:address/nft"}, params: options }),
+getPortfolio: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"Account","name":"getPortfolio","url":"/account/:network/:address/portfolio"}, params: options }),
   }
 
-  static nft = {
-getNFTMetadata: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"nft","name":"getNFTMetadata","url":"/nft/:network/:address/metadata"}, params: options }),
+  static NFT = {
+getNFTMetadata: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"NFT","name":"getNFTMetadata","url":"/nft/:network/:address/metadata"}, params: options }),
   }
 
-  static token = {
-getTokenPrice: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"token","name":"getTokenPrice","url":"/token/:network/:address/price"}, params: options }),
+  static Token = {
+getTokenPrice: async (options = {}) => SolanaApi.fetch({ endpoint: {"method":"GET","group":"Token","name":"getTokenPrice","url":"/token/:network/:address/price"}, params: options }),
   }
 }
 

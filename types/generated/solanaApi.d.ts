@@ -5,27 +5,27 @@
 
 export interface paths {
   "/account/{network}/{address}/balance": {
-    /** Gets native balance owned by the given network and address */
+    /** Gets the native balance owned by a given network and address. */
     get: operations["balance"];
   };
   "/account/{network}/{address}/tokens": {
-    /** Gets token balances owned by the given network and address */
+    /** Gets the token balances owned by a given network and address. */
     get: operations["getSPL"];
   };
   "/account/{network}/{address}/nft": {
-    /** Gets NFTs owned by the given network and address */
+    /** Gets NFTs owned by a given network and address. */
     get: operations["getNFTs"];
   };
   "/account/{network}/{address}/portfolio": {
-    /** Gets the portfolio of the given network and address */
+    /** Gets the portfolio for a given network and address. */
     get: operations["getPortfolio"];
   };
   "/nft/{network}/{address}/metadata": {
-    /** Gets the contract level metadata (mint, standard, name, symbol, metaplex) for the given network and contract */
+    /** Get the global NFT metadata for a given network and contract (mint, standard, name, symbol, metaplex). */
     get: operations["getNFTMetadata"];
   };
   "/token/{network}/{address}/price": {
-    /** Gets the token price (usd and native) for a given contract address and network */
+    /** Gets the token price (usd and native) for a given contract address and network. */
     get: operations["getTokenPrice"];
   };
 }
@@ -83,7 +83,7 @@ export interface components {
 }
 
 export interface operations {
-  /** Gets native balance owned by the given network and address */
+  /** Gets the native balance owned by a given network and address. */
   balance: {
     parameters: {
       path: {
@@ -104,7 +104,7 @@ export interface operations {
       };
     };
   };
-  /** Gets token balances owned by the given network and address */
+  /** Gets the token balances owned by a given network and address. */
   getSPL: {
     parameters: {
       path: {
@@ -125,7 +125,7 @@ export interface operations {
       };
     };
   };
-  /** Gets NFTs owned by the given network and address */
+  /** Gets NFTs owned by a given network and address. */
   getNFTs: {
     parameters: {
       path: {
@@ -146,7 +146,7 @@ export interface operations {
       };
     };
   };
-  /** Gets the portfolio of the given network and address */
+  /** Gets the portfolio for a given network and address. */
   getPortfolio: {
     parameters: {
       path: {
@@ -167,7 +167,7 @@ export interface operations {
       };
     };
   };
-  /** Gets the contract level metadata (mint, standard, name, symbol, metaplex) for the given network and contract */
+  /** Get the global NFT metadata for a given network and contract (mint, standard, name, symbol, metaplex). */
   getNFTMetadata: {
     parameters: {
       path: {
@@ -188,7 +188,7 @@ export interface operations {
       };
     };
   };
-  /** Gets the token price (usd and native) for a given contract address and network */
+  /** Gets the token price (usd and native) for a given contract address and network. */
   getTokenPrice: {
     parameters: {
       path: {
@@ -216,18 +216,18 @@ export interface external {}
 export default class SolanaApi {
   static initialize: (options: {apiKey?: string, serverUrl?: string, Moralis?: any}) => void;
 
-  static account: {
+  static Account: {
     balance: (options: operations["balance"]["parameters"]["path"]) => Promise<operations["balance"]["responses"]["200"]["content"]["application/json"]>;
     getSPL: (options: operations["getSPL"]["parameters"]["path"]) => Promise<operations["getSPL"]["responses"]["200"]["content"]["application/json"]>;
     getNFTs: (options: operations["getNFTs"]["parameters"]["path"]) => Promise<operations["getNFTs"]["responses"]["200"]["content"]["application/json"]>;
     getPortfolio: (options: operations["getPortfolio"]["parameters"]["path"]) => Promise<operations["getPortfolio"]["responses"]["200"]["content"]["application/json"]>;
   }
 
-  static nft: {
+  static NFT: {
     getNFTMetadata: (options: operations["getNFTMetadata"]["parameters"]["path"]) => Promise<operations["getNFTMetadata"]["responses"]["200"]["content"]["application/json"]>;
   }
 
-  static token: {
+  static Token: {
     getTokenPrice: (options: operations["getTokenPrice"]["parameters"]["path"]) => Promise<operations["getTokenPrice"]["responses"]["200"]["content"]["application/json"]>;
   }
 

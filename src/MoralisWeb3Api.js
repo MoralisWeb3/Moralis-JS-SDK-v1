@@ -170,8 +170,8 @@ static async fetchFromServer(name, options) {
       const user = this.Moralis.User.current();
       if(user) {
         options._SessionToken = user.attributes.sessionToken;
-        options._ApplicationId = this.Moralis.applicationId;
       }
+      options._ApplicationId = this.Moralis.applicationId;
       
       const response =  await http.post(`/functions/${name}`, options, {
         headers: { Accept: 'application/json', 'Content-Type': 'application/json', ...this.headers },
@@ -206,6 +206,7 @@ getTokenBalances: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"G
 getTokenTransfers: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getTokenTransfers","url":"/:address/erc20/transfers"}, params: options }),
 getNFTs: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getNFTs","url":"/:address/nft"}, params: options }),
 getNFTTransfers: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getNFTTransfers","url":"/:address/nft/transfers"}, params: options }),
+getWalletNFTCollections: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getWalletNFTCollections","url":"/:address/nft/collections"}, params: options }),
 getNFTsForContract: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getNFTsForContract","url":"/:address/nft/:token_address"}, params: options }),
   }
 
