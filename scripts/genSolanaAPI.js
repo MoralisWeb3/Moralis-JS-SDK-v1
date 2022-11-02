@@ -199,7 +199,7 @@ const genSolanaApi = async () => {
 
   Object.keys(wrappers).forEach(group => {
     content += '\n';
-    content += `  static ${group} = {\n`;
+    content += `  static ${group.toLowerCase()} = {\n`;
     Object.values(wrappers[group]).forEach(func => {
       content += `${
         func.name
