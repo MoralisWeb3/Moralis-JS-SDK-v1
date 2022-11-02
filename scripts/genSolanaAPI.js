@@ -201,10 +201,12 @@ const genSolanaApi = async () => {
     content += '\n';
     content += `  static ${group.toLowerCase()} = {\n`;
     Object.values(wrappers[group]).forEach(func => {
+      const endpoint = ENDPOINTS.find(e => e.name === func.name);
+      endpoint.group = endpoint.group.toLowerCase();
       content += `${
         func.name
       }: async (options = {}) => SolanaApi.fetch({ endpoint: ${JSON.stringify(
-        ENDPOINTS.find(e => e.name === func.name)
+        endpoint
       )}, params: options }),\n`;
     });
     content += '  }\n';
