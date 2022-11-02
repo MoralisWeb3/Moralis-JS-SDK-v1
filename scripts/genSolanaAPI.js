@@ -169,8 +169,8 @@ static async fetchFromServer(name, options) {
       const user = this.Moralis.User.current();
       if(user) {
         options._SessionToken = user.attributes.sessionToken;
-        options._ApplicationId = this.Moralis.applicationId;
       }
+      options._ApplicationId = this.Moralis.applicationId;
       
       const response =  await http.post(\`/functions/sol-\${name}\`, options, {
         headers: { Accept: 'application/json', 'Content-Type': 'application/json', ...this.headers },
@@ -199,12 +199,14 @@ const genSolanaApi = async () => {
 
   Object.keys(wrappers).forEach(group => {
     content += '\n';
-    content += `  static ${group} = {\n`;
+    content += `  static ${group.toLowerCase()} = {\n`;
     Object.values(wrappers[group]).forEach(func => {
+      const endpoint = ENDPOINTS.find(e => e.name === func.name);
+      endpoint.group = endpoint.group.toLowerCase();
       content += `${
         func.name
       }: async (options = {}) => SolanaApi.fetch({ endpoint: ${JSON.stringify(
-        ENDPOINTS.find(e => e.name === func.name)
+        endpoint
       )}, params: options }),\n`;
     });
     content += '  }\n';
