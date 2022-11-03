@@ -1486,6 +1486,12 @@ export interface components {
        */
       address: string;
     };
+    reservesPair: {
+      /** @example 220969226548536862025877 */
+      reserve0?: string;
+      /** @example 844810441191293211036 */
+      reserve1?: string;
+    };
     reservesCollection: {
       token0?: {
         /** @example 0x2b591e99afe9f32eaa6214f7b7629768c40eeb39 */
@@ -2814,12 +2820,7 @@ export interface operations {
       /** Returns the pair reserves */
       200: {
         content: {
-          "application/json": {
-            /** @example 220969226548536862025877 */
-            reserve0?: string;
-            /** @example 844810441191293211036 */
-            reserve1?: string;
-          };
+          "application/json": components["schemas"]["reservesPair"];
         };
       };
     };
