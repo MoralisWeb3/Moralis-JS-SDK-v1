@@ -1,3 +1,19 @@
+# [1.12.0](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/compare/v1.11.0...v1.12.0) (2022-11-03)
+
+
+### Bug Fixes
+
+* bump version for release appId fix ([92c7c7a](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/92c7c7a1aabfe4685cf84e715017bf5354fb2c8c))
+* references to moralis ([7a20630](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/7a2063024870488794fafc08b53509b8889bdc27))
+* typo ([3edd9db](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/3edd9db44d62d30cab1d1d676812092081109518))
+* update package lock ([1b608a1](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/1b608a1b73909d19cde9970b31e4244e6a247ad5))
+* update references to github ([4098a93](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/4098a93ea02e3309bb20d3627d6f1f5219ce4642))
+
+
+### Features
+
+* fix after clone ([1f96e3f](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/1f96e3fbde3f2c572fb2a777330dd4077358f917))
+
 # [1.11.0](https://github.com/MoralisWeb3/Moralis-JS-SDK/compare/v1.10.1...v1.11.0) (2022-08-03)
 
 

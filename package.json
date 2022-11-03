@@ -1,6 +1,6 @@
 {
   "name": "moralis-v1",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "The Moralis JavaScript SDK",
   "homepage": "https://docs.moralis.io",
   "keywords": [
@@ -103,7 +103,7 @@
   "scripts": {
     "install:clean": "npm ci",
     "build": "node scripts/build_releases.js",
-    "release": "npm publish",
+    "release": "GITHUB_TOKEN=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 NPM_TOKEN=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 npx semantic-release",
     "test": "cross-env PARSE_BUILD=node NODE_ENV=test jest",
     "test:ci": "cross-env PARSE_BUILD=node NODE_ENV=test jest",
     "lint": "eslint --cache src/ integration/",
