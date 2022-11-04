@@ -75,3 +75,10 @@ Moralis.setAsyncStorage(AsyncStorage);
 
 Typescript types are supported out-of-the box.
 The types are defined in `/types`. These are updated with every release.
+
+## Migration from v1.
+If you have already been using moralis version 1 and would like to continue to use this version without migrating to v2 the easiest **non-breaking** way to continue to use it is to update your `package.json` file with the following which will allow you to continue using the default `moralis` import without having to change your codebase to use `moralis-v1` everywhere. 
+
+```
+"moralis": "npm:moralis-v1@^1.xx.x" (where xx.xx is the version you would like)
+```
