@@ -260,6 +260,16 @@ export interface components {
       /** @example 0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9 */
       topic2: string;
       topic3: string;
+      /**
+       * @description The Transaction index of the log within the block
+       * @example 12
+       */
+      transaction_index: number;
+      /**
+       * @description The log index of the log within the block
+       * @example 15
+       */
+      log_index: number;
     };
     logEvent: {
       /**
@@ -1052,27 +1062,27 @@ export interface components {
        * @description The trait title or descriptor
        * @example Eye Color
        */
-      traitType?: string;
+      trait_type?: string;
       /**
        * @description The value of the attribute
        * @example hazel
        */
-      value?: string;
+      value?: { [key: string]: unknown };
       /**
        * @description The type the attribute value should be displayed as
        * @example string
        */
-      displayType?: string;
+      display_type?: string;
       /**
        * @description For numeric values, the upper range
        * @example 100
        */
-      maxValue?: number;
+      max_value?: number;
       /**
        * @description The number of possible values for this trait
        * @example 7
        */
-      traitCount?: number;
+      trait_count?: number;
       /**
        * @description Order the trait should appear in the attribute list.
        * @example 1
@@ -1099,12 +1109,12 @@ export interface components {
        * @description A link to additional information.
        * @example https://giphy.com/gifs/loop-recursion-ting-aaODAv1iuQdgI
        */
-      externalLink?: string;
+      external_link?: string;
       /**
        * @description An animated version of the NFT's image
        * @example https://giphy.com/gifs/food-design-donuts-o9ngTPVYW4qo8
        */
-      animationUrl?: string;
+      animation_url?: string;
       attributes?: components["schemas"]["normalizedMetadataAttribute"][];
     };
     nftOwnerCollection: {
@@ -1310,6 +1320,16 @@ export interface components {
        * @example 650000000000000000
        */
       value: string;
+      /**
+       * @description The transaction index of the transfer within the block
+       * @example 12
+       */
+      transaction_index: number;
+      /**
+       * @description The log index of the transfer within the block
+       * @example 2
+       */
+      log_index: number;
     };
     historicalNftTransfer: {
       /**
@@ -2034,6 +2054,8 @@ export interface operations {
         token_addresses?: string[];
         /** The cursor returned in the previous response (used to getting the next page). */
         cursor?: string;
+        /** Should normalized metadata be returned? */
+        normalizeMetadata?: boolean;
       };
       path: {
         /** The owner of a given token */
@@ -2501,6 +2523,8 @@ export interface operations {
         range?: number;
         /** The cursor returned in the previous response (used to getting the next page). */
         cursor?: string;
+        /** Should normalized metadata be returned? */
+        normalizeMetadata?: boolean;
       };
       path: {
         /** Address of the contract */
@@ -2558,6 +2582,8 @@ export interface operations {
         limit?: number;
         /** The cursor returned in the previous response (used to getting the next page). */
         cursor?: string;
+        /** Should normalized metadata be returned? */
+        normalizeMetadata?: boolean;
       };
       path: {
         /** Address of the contract */
@@ -2670,6 +2696,8 @@ export interface operations {
         chain?: components["schemas"]["chainList"];
         /** The format of the token id */
         format?: "decimal" | "hex";
+        /** Should normalized metadata be returned? */
+        normalizeMetadata?: boolean;
       };
       path: {
         /** Address of the contract */
@@ -2702,6 +2730,8 @@ export interface operations {
         limit?: number;
         /** The cursor returned in the previous response (used to getting the next page). */
         cursor?: string;
+        /** Should normalized metadata be returned? */
+        normalizeMetadata?: boolean;
       };
       path: {
         /** Address of the contract */

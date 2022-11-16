@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-// npx openapi-typescript https://deep-index.moralis.io/api-docs/v2/swagger.json --output types/generated/web3Api2.d.ts
 
 // const swaggerJsdoc = require('swagger-jsdoc');
 const path = require('path');
