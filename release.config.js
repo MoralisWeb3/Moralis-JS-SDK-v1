@@ -4,12 +4,7 @@ module.exports = {
   // ci: false,
   repositoryUrl: 'https://github.com/MoralisWeb3/Moralis-JS-SDK-v1',
   branches: [
-    'fix-versioning-during-deployment',
-    'main',
-    {
-      name: 'beta',
-      prerelease: true,
-    },
+    'main'
   ],
   plugins: [
     '@semantic-release/commit-analyzer',
