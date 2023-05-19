@@ -106,7 +106,8 @@ const makeMethod = (pathDetails, path) => {
 };
 
 const makeTagObject = (tag, pathByTag, pathDetails) => {
-  return `  static ${tag}: {
+  const safeTag = tag.replace(/ /, '_');
+  return `  static ${safeTag}: {
 ${pathByTag[tag].map(path => makeMethod(pathDetails, path)).join('')}  }
 
 `;

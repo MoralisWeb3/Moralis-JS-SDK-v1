@@ -188,7 +188,7 @@ static async fetchFromServer(name, options) {
         options._SessionToken = user.attributes.sessionToken;
       }
       options._ApplicationId = this.Moralis.applicationId;
-      
+
       const response =  await http.post(\`/functions/\${name}\`, options, {
         headers: { Accept: 'application/json', 'Content-Type': 'application/json', ...this.headers },
       });
@@ -197,7 +197,7 @@ static async fetchFromServer(name, options) {
       if(!this.checkObjEqual(nextOptions, options)) result.next = () => this.fetchFromServer(name, nextOptions);
       return result
     } catch (error) {
-      if (error.response?.data?.error) { 
+      if (error.response?.data?.error) {
         throw new Error(error.response.data.error);
       }
       throw error;
@@ -218,8 +218,9 @@ const genWebApi = async () => {
   }
 
   Object.keys(wrappers).forEach(group => {
+    const safeGroup = group.replace(/ /g, '_');
     content += '\n';
-    content += `  static ${group} = {\n`;
+    content += `  static ${safeGroup} = {\n`;
     Object.values(wrappers[group]).forEach(func => {
       content += `${func.name}: async (options = {}) => Web3Api.fetch({ endpoint: ${JSON.stringify(
         ENDPOINTS.find(e => e.name === func.name)

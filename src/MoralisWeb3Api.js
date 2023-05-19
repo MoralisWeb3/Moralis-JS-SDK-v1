@@ -194,14 +194,18 @@ getBlock: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","gro
 getDateToBlock: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"native","name":"getDateToBlock","url":"/dateToBlock"}, params: options }),
 getLogsByAddress: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"native","name":"getLogsByAddress","url":"/:address/logs"}, params: options }),
 getNFTTransfersByBlock: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"native","name":"getNFTTransfersByBlock","url":"/block/:block_number_or_hash/nft/transfers"}, params: options }),
+getInternalTransactions: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"native","name":"getInternalTransactions","url":"/transaction/:transaction_hash/internal-transactions"}, params: options }),
 getTransaction: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"native","name":"getTransaction","url":"/transaction/:transaction_hash"}, params: options }),
+getTransactionVerbose: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"native","name":"getTransactionVerbose","url":"/transaction/:transaction_hash/verbose"}, params: options }),
 getContractEvents: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"POST","group":"native","name":"getContractEvents","url":"/:address/events","bodyParams":[{"key":"data","type":"set body","required":false}]}, params: options }),
 runContractFunction: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"POST","group":"native","name":"runContractFunction","url":"/:address/function","bodyParams":[{"key":"abi","type":"property","required":true},{"key":"params","type":"property","required":false}]}, params: options }),
   }
 
   static account = {
 getTransactions: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getTransactions","url":"/:address"}, params: options }),
+getTransactionsVerbose: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getTransactionsVerbose","url":"/:address/verbose"}, params: options }),
 getNativeBalance: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getNativeBalance","url":"/:address/balance"}, params: options }),
+getNativeBalancesForAddresses: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getNativeBalancesForAddresses","url":"/wallets/balances"}, params: options }),
 getTokenBalances: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getTokenBalances","url":"/:address/erc20"}, params: options }),
 getTokenTransfers: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getTokenTransfers","url":"/:address/erc20/transfers"}, params: options }),
 getNFTs: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"account","name":"getNFTs","url":"/:address/nft"}, params: options }),
@@ -218,9 +222,14 @@ getTokenMetadataBySymbol: async (options = {}) => Web3Api.fetch({ endpoint: {"me
 getTokenPrice: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getTokenPrice","url":"/erc20/:address/price"}, params: options }),
 getTokenAddressTransfers: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getTokenAddressTransfers","url":"/erc20/:address/transfers"}, params: options }),
 getTokenAllowance: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getTokenAllowance","url":"/erc20/:address/allowance"}, params: options }),
+getErc20Transfers: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getErc20Transfers","url":"/erc20/transfers"}, params: options }),
+getErc20Mints: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getErc20Mints","url":"/erc20/mints"}, params: options }),
+getErc20Burns: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getErc20Burns","url":"/erc20/burns"}, params: options }),
+getErc20Approvals: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getErc20Approvals","url":"/erc20/approvals"}, params: options }),
 searchNFTs: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"searchNFTs","url":"/nft/search"}, params: options }),
-getNftTransfersFromToBlock: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getNftTransfersFromToBlock","url":"/nft/transfers"}, params: options }),
+getNFTTransfersFromToBlock: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getNFTTransfersFromToBlock","url":"/nft/transfers"}, params: options }),
 getAllTokenIds: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getAllTokenIds","url":"/nft/:address"}, params: options }),
+getMultipleNFTs: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"POST","group":"token","name":"getMultipleNFTs","url":"/nft/getMultipleNFTs","bodyParams":[{"key":"tokens","type":"property","required":true},{"key":"normalizeMetadata","type":"property","required":false},{"key":"media_items","type":"property","required":false}]}, params: options }),
 getContractNFTTransfers: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getContractNFTTransfers","url":"/nft/:address/transfers"}, params: options }),
 getNFTOwners: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getNFTOwners","url":"/nft/:address/owners"}, params: options }),
 getNFTMetadata: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"token","name":"getNFTMetadata","url":"/nft/:address/metadata"}, params: options }),
@@ -236,6 +245,7 @@ syncNFTContract: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"PU
 
   static resolve = {
 resolveDomain: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"resolve","name":"resolveDomain","url":"/resolve/:domain"}, params: options }),
+resolveENSDomain: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"resolve","name":"resolveENSDomain","url":"/resolve/ens/:domain"}, params: options }),
 resolveAddress: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"resolve","name":"resolveAddress","url":"/resolve/:address/reverse"}, params: options }),
   }
 
@@ -251,6 +261,17 @@ uploadFolder: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"POST"
   static info = {
 web3ApiVersion: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"info","name":"web3ApiVersion","url":"/web3/version"}, params: options }),
 endpointWeights: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"info","name":"endpointWeights","url":"/info/endpointWeights"}, params: options }),
+  }
+
+  static market_data = {
+getTopERC20TokensByMarketCap: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"market data","name":"getTopERC20TokensByMarketCap","url":"/market-data/erc20s/top-tokens"}, params: options }),
+getTopERC20TokensByPriceMovers: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"market data","name":"getTopERC20TokensByPriceMovers","url":"/market-data/erc20s/top-movers"}, params: options }),
+getTopNFTCollectionsByMarketCap: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"market data","name":"getTopNFTCollectionsByMarketCap","url":"/market-data/nfts/top-collections"}, params: options }),
+getHottestNFTCollectionsByTradingVolume: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"GET","group":"market data","name":"getHottestNFTCollectionsByTradingVolume","url":"/market-data/nfts/hottest-collections"}, params: options }),
+  }
+
+  static utils = {
+reviewContracts: async (options = {}) => Web3Api.fetch({ endpoint: {"method":"POST","group":"utils","name":"reviewContracts","url":"/contracts-review","bodyParams":[{"key":"contracts","type":"property","required":true}]}, params: options }),
   }
 }
 
