@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
+require('dotenv').config({ path: './.env' });
+
 module.exports = {
   entry: `./src/main.ts`,
   cache: false,
@@ -11,14 +13,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.ts', '.js'],
     fallback: {
       'zlib': false,
       'https': false,
@@ -26,7 +24,9 @@ module.exports = {
       'stream': false,
       'crypto': false,
       'os': false,
-      'magic-sdk': false
+      'magic-sdk': false,
+      '@web3auth/web3auth': false,
+      '@walletconnect/ethereum-provider': require.resolve('@walletconnect/ethereum-provider')
     }
   },
   output: {
@@ -39,6 +39,11 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify({
+        WALLET_CONNECT_PROJECT_ID: process.env.WALLET_CONNECT_PROJECT_ID,
+      }),
     }),
   ],
 };
