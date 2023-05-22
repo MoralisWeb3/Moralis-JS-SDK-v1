@@ -5,15 +5,21 @@ import { mockRestController } from './restControllerMock';
 
 const WALLET_CONNECT_PROJECT_ID = process.env.WALLET_CONNECT_PROJECT_ID as string;
 
-document.addEventListener('DOMContentLoaded', () => {
-  Moralis.initialize('APPLICATION_ID');
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+    Moralis.initialize('APPLICATION_ID');
 
-  // This demo does not use Moralis server, so we mock it.
-  mockRestController();
+    // This demo does not use Moralis server, so we mock it.
+    mockRestController();
 
-  document.getElementById('connectWithMoralis')!.addEventListener('click', connectWithMoralis, false);
-  document.getElementById('connect')!.addEventListener('click', connect, false);
-}, false);
+    document
+      .getElementById('connectWithMoralis')!
+      .addEventListener('click', connectWithMoralis, false);
+    document.getElementById('connect')!.addEventListener('click', connect, false);
+  },
+  false
+);
 
 function setResult(value: string) {
   document.getElementById('result')!.innerHTML = value;
@@ -26,8 +32,8 @@ async function connectWithMoralis() {
     chainId: 1,
     projectId: WALLET_CONNECT_PROJECT_ID,
     qrModalOptions: {
-      themeMode: 'light'
-    }
+      themeMode: 'light',
+    },
   });
   console.log('result', result);
   setResult(`username: ${result.getUsername()}`);
@@ -39,7 +45,7 @@ async function connect() {
     chains: [1],
     showQrModal: true,
     qrModalOptions: {
-      themeMode: 'light'
+      themeMode: 'light',
     },
   });
   await provider.enable();

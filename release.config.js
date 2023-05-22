@@ -3,9 +3,7 @@ module.exports = {
   // dryRun: false,
   // ci: false,
   repositoryUrl: 'https://github.com/MoralisWeb3/Moralis-JS-SDK-v1',
-  branches: [
-    'main'
-  ],
+  branches: ['main'],
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',

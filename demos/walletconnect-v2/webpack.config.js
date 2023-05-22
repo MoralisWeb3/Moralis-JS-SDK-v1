@@ -18,16 +18,16 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
     fallback: {
-      'zlib': false,
-      'https': false,
-      'http': false,
-      'stream': false,
-      'crypto': false,
-      'os': false,
+      zlib: false,
+      https: false,
+      http: false,
+      stream: false,
+      crypto: false,
+      os: false,
       'magic-sdk': false,
       '@web3auth/web3auth': false,
-      '@walletconnect/ethereum-provider': require.resolve('@walletconnect/ethereum-provider')
-    }
+      '@walletconnect/ethereum-provider': require.resolve('@walletconnect/ethereum-provider'),
+    },
   },
   output: {
     filename: 'bundle.js',

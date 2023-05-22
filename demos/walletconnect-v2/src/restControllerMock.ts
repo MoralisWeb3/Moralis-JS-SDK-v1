@@ -31,7 +31,8 @@ export function mockRestController() {
               notBefore: '2023-05-22T11:08:57.921Z',
               statement: 'Please sign this message to confirm your identity.',
               uri: 'http://localhost:1337/server',
-              moralisProfileId: '0xe1d137504f66d84c1382f9c8d585f5b343aba4adac544fb44066f6edf1953cd3',
+              moralisProfileId:
+                '0xe1d137504f66d84c1382f9c8d585f5b343aba4adac544fb44066f6edf1953cd3',
             },
           },
           createdAt: '2023-01-06T09:28:42.978Z',

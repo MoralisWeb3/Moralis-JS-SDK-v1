@@ -15,7 +15,7 @@ await Moralis.authenticate({
   projectId: '<PROJECT_ID>',
   newSession: true, // OPTIONAL
   chainId: 1, // OPTIONAL
-  qrModalOptions: { themeMode: 'light' } // OPTIONAL
+  qrModalOptions: { themeMode: 'light' }, // OPTIONAL
 });
 ```
 
