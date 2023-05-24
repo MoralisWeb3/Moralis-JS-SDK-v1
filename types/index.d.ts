@@ -358,6 +358,9 @@ export namespace Moralis {
      */
     qrModalOptions?: object;
     newSession?: boolean;
+    rpcMap?: {
+      [chainId: string]: string;
+    };
   }
   interface NetworkWeb3ConnectorEnableOptions extends CommonEnableOptions {
     urls?: Record<string, string>;

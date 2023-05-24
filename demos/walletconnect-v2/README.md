@@ -13,8 +13,9 @@ WalletConnect V1 is [deprecated and support will be removed in the future](https
 await Moralis.authenticate({
   provider: 'walletconnect',
   projectId: '<PROJECT_ID>',
-  newSession: true, // OPTIONAL
   chainId: 1, // OPTIONAL
+  newSession: true, // OPTIONAL
+  rpcMap: { '1': 'https://rpc.domain.com/...' }, // OPTIONAL
   qrModalOptions: { themeMode: 'light' }, // OPTIONAL
 });
 ```

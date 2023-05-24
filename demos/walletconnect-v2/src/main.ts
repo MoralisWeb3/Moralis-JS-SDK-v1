@@ -2,6 +2,7 @@ import Moralis from 'moralis-v1';
 import { providers } from 'ethers';
 import { EthereumProvider } from '@walletconnect/ethereum-provider';
 import { mockRestController } from './restControllerMock';
+import { erc20Abi } from './erc20abi';
 
 const WALLET_CONNECT_PROJECT_ID = process.env.WALLET_CONNECT_PROJECT_ID as string;
 
@@ -26,17 +27,29 @@ function setResult(value: string) {
 }
 
 async function connectWithMoralis() {
-  const result = await Moralis.authenticate({
+  const chainId = 1;
+  const user = await Moralis.authenticate({
     newSession: true,
     provider: 'walletconnect',
-    chainId: 1,
+    chainId,
     projectId: WALLET_CONNECT_PROJECT_ID,
+    rpcMap: {
+      '1': `https://rpc.walletconnect.com/v1/?chainId=eip155:${chainId}&projectId=${WALLET_CONNECT_PROJECT_ID}`,
+    },
     qrModalOptions: {
       themeMode: 'light',
     },
   });
-  console.log('result', result);
-  setResult(`username: ${result.getUsername()}`);
+  console.log('user', user);
+
+  const contractName = await Moralis.executeFunction({
+    abi: erc20Abi,
+    contractAddress: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    functionName: 'name',
+  });
+  console.log('contractName', contractName);
+
+  setResult(`username: ${user.getUsername()}, contractName: ${contractName}`);
 }
 
 async function connect() {

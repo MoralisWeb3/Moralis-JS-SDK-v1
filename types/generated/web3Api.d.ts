@@ -111,6 +111,10 @@ export interface paths {
     /** Get the token price denominated in the blockchains native token and USD. */
     get: operations["getTokenPrice"];
   };
+  "/erc20/prices": {
+    /** Returns an array of token prices denominated in the blockchains native token and USD. */
+    post: operations["getMultipleTokenPrices"];
+  };
   "/erc20/{address}/transfers": {
     /** Get ERC20 token transactions ordered by block number in descending order. */
     get: operations["getTokenAddressTransfers"];
@@ -1079,6 +1083,30 @@ export interface components {
       normalizeMetadata?: boolean;
       /** @description Should preview media data be returned? */
       media_items?: boolean;
+    };
+    tokenPriceItem: {
+      /**
+       * @description The contract address
+       * @example 0x06012c8cf97bead5deae237070f9587f8e7a266d
+       */
+      token_address: string;
+      /**
+       * @description The exchange
+       * @example uniswapv3
+       */
+      exchange?: string;
+      /**
+       * @description The block number
+       * @example 12526958
+       */
+      to_block?: string;
+    };
+    GetMultipleTokenPricesDto: {
+      /**
+       * @description The tokens to be fetched
+       * @example [object Object],[object Object],[object Object],[object Object]
+       */
+      tokens: components["schemas"]["tokenPriceItem"][];
     };
     transactionVerboseCollection: {
       /**
@@ -2194,6 +2222,11 @@ export interface components {
        * @example 19.722370676
        */
       usdPrice: number;
+      /**
+       * @description The price in USD for the token in string format
+       * @example 19.722370676
+       */
+      usdPriceFormatted?: string;
       /**
        * @description The address of the exchange used to calculate the price
        * @example 0x1f98431c8ad98523631ae4a59f267346ea31f984
@@ -3439,6 +3472,29 @@ export interface operations {
       };
     };
   };
+  /** Returns an array of token prices denominated in the blockchains native token and USD. */
+  getMultipleTokenPrices: {
+    parameters: {
+      query: {
+        /** The chain to query */
+        chain?: components["schemas"]["chainList"];
+      };
+    };
+    responses: {
+      /** Returns an array of token prices denominated in the blockchains native token and USD. */
+      200: {
+        content: {
+          "application/json": components["schemas"]["erc20Price"][];
+        };
+      };
+    };
+    /** Body */
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["GetMultipleTokenPricesDto"];
+      };
+    };
+  };
   /** Get ERC20 token transactions ordered by block number in descending order. */
   getTokenAddressTransfers: {
     parameters: {
@@ -3987,7 +4043,14 @@ export interface operations {
     };
     responses: {
       /** Contract Address was triggered for index. */
-      201: unknown;
+      201: {
+        content: {
+          "application/json": {
+            /** @example Request Initiated */
+            message?: string;
+          };
+        };
+      };
     };
   };
   /**
@@ -4385,6 +4448,7 @@ export default class Web3Api {
     getNFTLowestPrice: (options: operations["getNFTLowestPrice"]["parameters"]["query"] & operations["getNFTLowestPrice"]["parameters"]["path"]) => Promise<operations["getNFTLowestPrice"]["responses"]["200"]["content"]["application/json"] & defaultResponse<operations["getNFTLowestPrice"]["responses"]["200"]["content"]["application/json"]>>;
     getTokenMetadataBySymbol: (options: operations["getTokenMetadataBySymbol"]["parameters"]["query"]) => Promise<operations["getTokenMetadataBySymbol"]["responses"]["200"]["content"]["application/json"] & defaultResponse<operations["getTokenMetadataBySymbol"]["responses"]["200"]["content"]["application/json"]>>;
     getTokenPrice: (options: operations["getTokenPrice"]["parameters"]["query"] & operations["getTokenPrice"]["parameters"]["path"]) => Promise<operations["getTokenPrice"]["responses"]["200"]["content"]["application/json"] & defaultResponse<operations["getTokenPrice"]["responses"]["200"]["content"]["application/json"]>>;
+    getMultipleTokenPrices: (options: operations["getMultipleTokenPrices"]["parameters"]["query"]) => Promise<operations["getMultipleTokenPrices"]["responses"]["200"]["content"]["application/json"] & defaultResponse<operations["getMultipleTokenPrices"]["responses"]["200"]["content"]["application/json"]>>;
     getTokenAddressTransfers: (options: operations["getTokenAddressTransfers"]["parameters"]["query"] & operations["getTokenAddressTransfers"]["parameters"]["path"]) => Promise<operations["getTokenAddressTransfers"]["responses"]["200"]["content"]["application/json"] & defaultResponse<operations["getTokenAddressTransfers"]["responses"]["200"]["content"]["application/json"]>>;
     getTokenAllowance: (options: operations["getTokenAllowance"]["parameters"]["query"] & operations["getTokenAllowance"]["parameters"]["path"]) => Promise<operations["getTokenAllowance"]["responses"]["200"]["content"]["application/json"] & defaultResponse<operations["getTokenAllowance"]["responses"]["200"]["content"]["application/json"]>>;
     getErc20Transfers: (options: operations["getErc20Transfers"]["parameters"]["query"]) => Promise<operations["getErc20Transfers"]["responses"]["200"]["content"]["application/json"] & defaultResponse<operations["getErc20Transfers"]["responses"]["200"]["content"]["application/json"]>>;

@@ -1,6 +1,7 @@
 /* global window */
 import verifyChainId from '../utils/verifyChainId';
 import AbstractWeb3Connector from './AbstractWeb3Connector';
+import { getMoralisRpcs } from './MoralisRpcs';
 
 export const WalletConnectEvent = Object.freeze({
   ACCOUNTS_CHANGED: 'accountsChanged',
@@ -16,7 +17,7 @@ export const WalletConnectEvent = Object.freeze({
 class WalletConnectWeb3Connector extends AbstractWeb3Connector {
   type = 'WalletConnect';
 
-  async activate({ projectId, chainId: providedChainId, qrModalOptions, newSession } = {}) {
+  async activate({ projectId, chainId: providedChainId, qrModalOptions, newSession, rpcMap } = {}) {
     if (!projectId) {
       throw new Error('WalletConnect requires projectId');
     }
@@ -27,14 +28,17 @@ class WalletConnectWeb3Connector extends AbstractWeb3Connector {
     }
 
     if (!this.provider) {
-      let WalletConnectProvider;
+      const rpcs = rpcMap || getMoralisRpcs('WalletConnect');
+
       const config = {
         projectId,
         chains: [providedChainId ? Number(providedChainId) : 1],
         showQrModal: true,
+        rpcMap: rpcs,
         qrModalOptions,
       };
 
+      let WalletConnectProvider;
       try {
         WalletConnectProvider = require('@walletconnect/ethereum-provider')?.EthereumProvider;
       } catch (error) {
