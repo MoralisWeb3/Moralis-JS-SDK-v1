@@ -1,3 +1,17 @@
+# [1.13.0](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/compare/v1.12.0...v1.13.0) (2023-05-25)
+
+
+### Bug Fixes
+
+* force version bump ([6d882fa](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/6d882fafa14e512ac170197a054ba6947e98260a))
+* update api type ([30a92f6](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/30a92f63d6fda40ec46abd838b775da5c30049f6))
+* update version warning ([90fabac](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/90fabac4100d4c653178acd02fb20caf23fc1ca5))
+
+
+### Features
+
+* updated WalletConnect to V2. ([#39](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/issues/39)) ([a56001d](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/commit/a56001d3b29f29995914f50e93be155b7c0cb04a))
+
 # [1.12.0](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/compare/v1.11.0...v1.12.0) (2022-11-03)
 
 
