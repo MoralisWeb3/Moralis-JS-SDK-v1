@@ -8,7 +8,7 @@
 <h2 align="center">Moralis SDK for JavaScript</h2>
 
 <p align="center">
-    A library that gives you access to the powerful Moralis Server backend from your JavaScript app. <a href="https://admin.moralis.io">Create Server Here</a>
+    A library that gives you access to the powerful Moralis Server backend from your JavaScript app.
 </p>
 
 For more information on Moralis and its features, see [the website](https://moralis.io), [the JavaScript guide](https://docs.moralis.io), [the Cloud Code guide](https://docs.moralis.io/moralis-server/cloud-code) or [Web3 Reference](https://docs.moralis.io/moralis-server/web3-sdk/intro).
