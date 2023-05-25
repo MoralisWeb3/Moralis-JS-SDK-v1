@@ -351,9 +351,16 @@ export namespace Moralis {
     anyNetwork?: boolean;
   }
   interface WalletConnectWeb3ConnectorEnableOptions extends CommonEnableOptions {
+    projectId: string;
     chainId?: number;
-    mobileLinks?: string[];
+    /**
+     * @see https://docs.walletconnect.com/2.0/web3modal/options
+     */
+    qrModalOptions?: object;
     newSession?: boolean;
+    rpcMap?: {
+      [chainId: string]: string;
+    };
   }
   interface NetworkWeb3ConnectorEnableOptions extends CommonEnableOptions {
     urls?: Record<string, string>;

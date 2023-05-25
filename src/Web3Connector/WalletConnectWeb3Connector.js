@@ -1,7 +1,6 @@
 /* global window */
 import verifyChainId from '../utils/verifyChainId';
 import AbstractWeb3Connector from './AbstractWeb3Connector';
-import { ConnectorEvents } from './events';
 import { getMoralisRpcs } from './MoralisRpcs';
 
 export const WalletConnectEvent = Object.freeze({
@@ -12,50 +11,51 @@ export const WalletConnectEvent = Object.freeze({
 
 /**
  * Connector to connect an WalletConenct provider to Moralis
- * Note: this assumes using WalletConnect v1
- * // TODO: support WalletConnect v2
+ * Note: this assumes using WalletConnect v2
  */
 
 class WalletConnectWeb3Connector extends AbstractWeb3Connector {
   type = 'WalletConnect';
 
-  async activate({ chainId: providedChainId, mobileLinks, newSession } = {}) {
+  async activate({ projectId, chainId: providedChainId, qrModalOptions, newSession, rpcMap } = {}) {
+    if (!projectId) {
+      throw new Error('WalletConnect requires projectId');
+    }
+
     // Log out of any previous sessions
     if (newSession) {
       this.cleanup();
     }
 
     if (!this.provider) {
-      let WalletConnectProvider;
+      const rpcs = rpcMap || getMoralisRpcs('WalletConnect');
+
       const config = {
-        rpc: getMoralisRpcs('WalletConnect'),
-        chainId: providedChainId,
-        qrcodeModalOptions: {
-          mobileLinks,
-        },
+        projectId,
+        chains: [providedChainId ? Number(providedChainId) : 1],
+        showQrModal: true,
+        rpcMap: rpcs,
+        qrModalOptions,
       };
 
+      let WalletConnectProvider;
       try {
-        WalletConnectProvider = require('@walletconnect/web3-provider')?.default;
+        WalletConnectProvider = require('@walletconnect/ethereum-provider')?.EthereumProvider;
       } catch (error) {
         // Do nothing. User might not need walletconnect
       }
 
       if (!WalletConnectProvider) {
-        WalletConnectProvider = window?.WalletConnectProvider?.default;
+        WalletConnectProvider = window?.WalletConnectProvider?.EthereumProvider;
       }
 
       if (!WalletConnectProvider) {
         throw new Error(
-          'Cannot enable via WalletConnect: dependency "@walletconnect/web3-provider" is missing'
+          'Cannot enable via WalletConnect: dependency "@walletconnect/ethereum-provider" is missing'
         );
       }
 
-      if (typeof WalletConnectProvider === 'function') {
-        this.provider = new WalletConnectProvider(config);
-      } else {
-        this.provider = new window.WalletConnectProvider(config);
-      }
+      this.provider = await WalletConnectProvider.init(config);
     }
 
     if (!this.provider) {
@@ -79,7 +79,11 @@ class WalletConnectWeb3Connector extends AbstractWeb3Connector {
   cleanup() {
     try {
       if (window) {
-        window.localStorage.removeItem('walletconnect');
+        Object.keys(window.localStorage).forEach(key => {
+          if (key.startsWith('wc@')) {
+            window.localStorage.removeItem(key);
+          }
+        });
       }
     } catch (error) {
       // Do nothing

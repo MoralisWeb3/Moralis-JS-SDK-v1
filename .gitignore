@@ -16,3 +16,4 @@ docs/
 .env
 eslint_report.json
 .npmrc
+.vscode
